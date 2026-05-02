@@ -1,0 +1,584 @@
+{
+  "ligue1": [
+    {
+      "name": "Paris Saint-Germain",
+      "short_name": "PSG",
+      "players": [
+        {"name": "Gianluigi Donnarumma", "position": "GK", "age": 25, "rating": 88, "nationality": "Italy"},
+        {"name": "Achraf Hakimi", "position": "RB", "age": 25, "rating": 86, "nationality": "Morocco"},
+        {"name": "Marquinhos", "position": "CB", "age": 30, "rating": 87, "nationality": "Brazil"},
+        {"name": "Milan Škriniar", "position": "CB", "age": 29, "rating": 85, "nationality": "Slovakia"},
+        {"name": "Lucas Hernández", "position": "LB", "age": 28, "rating": 84, "nationality": "France"},
+        {"name": "Warren Zaïre-Emery", "position": "CM", "age": 18, "rating": 80, "nationality": "France"},
+        {"name": "Vitinha", "position": "CM", "age": 24, "rating": 85, "nationality": "Portugal"},
+        {"name": "João Neves", "position": "CM", "age": 19, "rating": 82, "nationality": "Portugal"},
+        {"name": "Ousmane Dembélé", "position": "RW", "age": 27, "rating": 86, "nationality": "France"},
+        {"name": "Bradley Barcola", "position": "LW", "age": 22, "rating": 83, "nationality": "France"},
+        {"name": "Randal Kolo Muani", "position": "ST", "age": 25, "rating": 84, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Olympique de Marseille",
+      "short_name": "OM",
+      "players": [
+        {"name": "Pau López", "position": "GK", "age": 29, "rating": 82, "nationality": "Spain"},
+        {"name": "Jonathan Clauss", "position": "RB", "age": 31, "rating": 81, "nationality": "France"},
+        {"name": "Leonardo Balerdi", "position": "CB", "age": 25, "rating": 82, "nationality": "Argentina"},
+        {"name": "Samuel Gigot", "position": "CB", "age": 30, "rating": 80, "nationality": "France"},
+        {"name": "Quentin Merlin", "position": "LB", "age": 22, "rating": 79, "nationality": "France"},
+        {"name": "Pierre-Emerick Aubameyang", "position": "ST", "age": 35, "rating": 83, "nationality": "Gabon"},
+        {"name": "Amine Harit", "position": "CAM", "age": 27, "rating": 81, "nationality": "Morocco"},
+        {"name": "Geoffrey Kondogbia", "position": "CDM", "age": 31, "rating": 82, "nationality": "France"},
+        {"name": "Valentin Rongier", "position": "CM", "age": 29, "rating": 80, "nationality": "France"},
+        {"name": "Iliman Ndiaye", "position": "LW", "age": 24, "rating": 80, "nationality": "Senegal"},
+        {"name": "Luis Henrique", "position": "RW", "age": 22, "rating": 79, "nationality": "Brazil"}
+      ]
+    },
+    {
+      "name": "AS Monaco",
+      "short_name": "MON",
+      "players": [
+        {"name": "Philipp Köhn", "position": "GK", "age": 26, "rating": 80, "nationality": "Switzerland"},
+        {"name": "Vanderson", "position": "RB", "age": 23, "rating": 81, "nationality": "Brazil"},
+        {"name": "Thilo Kehrer", "position": "CB", "age": 27, "rating": 81, "nationality": "Germany"},
+        {"name": "Wilfried Singo", "position": "CB", "age": 24, "rating": 79, "nationality": "Ivory Coast"},
+        {"name": "Caio Henrique", "position": "LB", "age": 27, "rating": 80, "nationality": "Brazil"},
+        {"name": "Youssouf Fofana", "position": "CDM", "age": 25, "rating": 83, "nationality": "France"},
+        {"name": "Denis Zakaria", "position": "CM", "age": 27, "rating": 82, "nationality": "Switzerland"},
+        {"name": "Aleksandr Golovin", "position": "CAM", "age": 28, "rating": 81, "nationality": "Russia"},
+        {"name": "Takumi Minamino", "position": "RW", "age": 29, "rating": 80, "nationality": "Japan"},
+        {"name": "Maghnes Akliouche", "position": "LW", "age": 22, "rating": 79, "nationality": "France"},
+        {"name": "Folarin Balogun", "position": "ST", "age": 23, "rating": 83, "nationality": "USA"}
+      ]
+    },
+    {
+      "name": "Olympique Lyonnais",
+      "short_name": "OL",
+      "players": [
+        {"name": "Anthony Lopes", "position": "GK", "age": 33, "rating": 81, "nationality": "Portugal"},
+        {"name": "Saël Kumbedi", "position": "RB", "age": 19, "rating": 77, "nationality": "France"},
+        {"name": "Duje Ćaleta-Car", "position": "CB", "age": 27, "rating": 80, "nationality": "Croatia"},
+        {"name": "Jake O'Brien", "position": "CB", "age": 23, "rating": 79, "nationality": "Ireland"},
+        {"name": "Nicolás Tagliafico", "position": "LB", "age": 31, "rating": 81, "nationality": "Argentina"},
+        {"name": "Corentin Tolisso", "position": "CM", "age": 29, "rating": 82, "nationality": "France"},
+        {"name": "Nemanja Matić", "position": "CDM", "age": 35, "rating": 81, "nationality": "Serbia"},
+        {"name": "Maxence Caqueret", "position": "CM", "age": 24, "rating": 80, "nationality": "France"},
+        {"name": "Rayan Cherki", "position": "CAM", "age": 20, "rating": 79, "nationality": "France"},
+        {"name": "Malick Fofana", "position": "LW", "age": 19, "rating": 78, "nationality": "Belgium"},
+        {"name": "Alexandre Lacazette", "position": "ST", "age": 33, "rating": 83, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "LOSC Lille",
+      "short_name": "LOSC",
+      "players": [
+        {"name": "Lucas Chevalier", "position": "GK", "age": 22, "rating": 80, "nationality": "France"},
+        {"name": "Tiago Santos", "position": "RB", "age": 22, "rating": 78, "nationality": "Portugal"},
+        {"name": "Leny Yoro", "position": "CB", "age": 18, "rating": 82, "nationality": "France"},
+        {"name": "Alexsandro Ribeiro", "position": "CB", "age": 25, "rating": 79, "nationality": "Brazil"},
+        {"name": "Ismaily", "position": "LB", "age": 34, "rating": 78, "nationality": "Brazil"},
+        {"name": "Benjamin André", "position": "CDM", "age": 33, "rating": 80, "nationality": "France"},
+        {"name": "Angel Gomes", "position": "CM", "age": 23, "rating": 79, "nationality": "England"},
+        {"name": "Rémy Cabella", "position": "CAM", "age": 34, "rating": 79, "nationality": "France"},
+        {"name": "Edon Zhegrova", "position": "RW", "age": 25, "rating": 81, "nationality": "Kosovo"},
+        {"name": "Hakon Haraldsson", "position": "LW", "age": 21, "rating": 77, "nationality": "Iceland"},
+        {"name": "Jonathan David", "position": "ST", "age": 24, "rating": 84, "nationality": "Canada"}
+      ]
+    },
+    {
+      "name": "RC Lens",
+      "short_name": "RCL",
+      "players": [
+        {"name": "Brice Samba", "position": "GK", "age": 30, "rating": 82, "nationality": "France"},
+        {"name": "Jonathan Gradit", "position": "RB", "age": 31, "rating": 78, "nationality": "France"},
+        {"name": "Kevin Danso", "position": "CB", "age": 25, "rating": 81, "nationality": "Austria"},
+        {"name": "Facundo Medina", "position": "CB", "age": 25, "rating": 80, "nationality": "Argentina"},
+        {"name": "Przemysław Frankowski", "position": "LB", "age": 29, "rating": 79, "nationality": "Poland"},
+        {"name": "Salis Abdul Samed", "position": "CDM", "age": 24, "rating": 79, "nationality": "Ghana"},
+        {"name": "Neil El Aynaoui", "position": "CM", "age": 22, "rating": 77, "nationality": "Morocco"},
+        {"name": "Angelo Fulgini", "position": "CAM", "age": 27, "rating": 79, "nationality": "France"},
+        {"name": "Florian Sotoca", "position": "RW", "age": 33, "rating": 80, "nationality": "France"},
+        {"name": "Adrien Thomasson", "position": "LW", "age": 30, "rating": 79, "nationality": "France"},
+        {"name": "Elye Wahi", "position": "ST", "age": 21, "rating": 80, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Stade Rennais",
+      "short_name": "REN",
+      "players": [
+        {"name": "Steve Mandanda", "position": "GK", "age": 39, "rating": 79, "nationality": "France"},
+        {"name": "Lorenz Assignon", "position": "RB", "age": 23, "rating": 77, "nationality": "France"},
+        {"name": "Arthur Theate", "position": "CB", "age": 24, "rating": 79, "nationality": "Belgium"},
+        {"name": "Warmed Omari", "position": "CB", "age": 24, "rating": 78, "nationality": "France"},
+        {"name": "Adrien Truffert", "position": "LB", "age": 22, "rating": 78, "nationality": "France"},
+        {"name": "Baptiste Santamaría", "position": "CDM", "age": 29, "rating": 79, "nationality": "France"},
+        {"name": "Désiré Doué", "position": "CM", "age": 19, "rating": 77, "nationality": "France"},
+        {"name": "Fabian Rieder", "position": "CAM", "age": 22, "rating": 77, "nationality": "Switzerland"},
+        {"name": "Ludovic Blas", "position": "RW", "age": 26, "rating": 80, "nationality": "France"},
+        {"name": "Amine Gouiri", "position": "LW", "age": 24, "rating": 79, "nationality": "Algeria"},
+        {"name": "Arnaud Kalimuendo", "position": "ST", "age": 22, "rating": 80, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "OGC Nice",
+      "short_name": "Nice",
+      "players": [
+        {"name": "Marcin Bulka", "position": "GK", "age": 24, "rating": 80, "nationality": "Poland"},
+        {"name": "Jordan Lotomba", "position": "RB", "age": 25, "rating": 78, "nationality": "France"},
+        {"name": "Jean-Clair Todibo", "position": "CB", "age": 24, "rating": 81, "nationality": "France"},
+        {"name": "Dante", "position": "CB", "age": 40, "rating": 77, "nationality": "Brazil"},
+        {"name": "Melvin Bard", "position": "LB", "age": 23, "rating": 78, "nationality": "France"},
+        {"name": "Khéphren Thuram", "position": "CM", "age": 23, "rating": 81, "nationality": "France"},
+        {"name": "Pablo Rosario", "position": "CDM", "age": 27, "rating": 79, "nationality": "Netherlands"},
+        {"name": "Hicham Boudaoui", "position": "CM", "age": 24, "rating": 77, "nationality": "Algeria"},
+        {"name": "Gaëtan Laborde", "position": "ST", "age": 30, "rating": 79, "nationality": "France"},
+        {"name": "Terem Moffi", "position": "ST", "age": 25, "rating": 79, "nationality": "Nigeria"},
+        {"name": "Jérémie Boga", "position": "LW", "age": 27, "rating": 79, "nationality": "Ivory Coast"}
+      ]
+    },
+    {
+      "name": "Stade de Reims",
+      "short_name": "Reims",
+      "players": [
+        {"name": "Yehvann Diouf", "position": "GK", "age": 24, "rating": 77, "nationality": "Senegal"},
+        {"name": "Thomas Foket", "position": "RB", "age": 30, "rating": 77, "nationality": "Belgium"},
+        {"name": "Emmanuel Agbadou", "position": "CB", "age": 27, "rating": 78, "nationality": "Ivory Coast"},
+        {"name": "Abdul Conteh", "position": "CB", "age": 22, "rating": 75, "nationality": "Sierra Leone"},
+        {"name": "Moreto Cassamá", "position": "LB", "age": 26, "rating": 77, "nationality": "Guinea-Bissau"},
+        {"name": "Azor Matusiwa", "position": "CDM", "age": 26, "rating": 77, "nationality": "Netherlands"},
+        {"name": "Junya Ito", "position": "RW", "age": 31, "rating": 79, "nationality": "Japan"},
+        {"name": "Teddy Teuma", "position": "CAM", "age": 30, "rating": 78, "nationality": "Malta"},
+        {"name": "Keito Nakamura", "position": "LW", "age": 24, "rating": 78, "nationality": "Japan"},
+        {"name": "Oumar Diakité", "position": "ST", "age": 22, "rating": 77, "nationality": "Ivory Coast"},
+        {"name": "Folarin Balogun", "position": "ST", "age": 23, "rating": 78, "nationality": "USA"}
+      ]
+    },
+    {
+      "name": "RC Strasbourg",
+      "short_name": "Strasbourg",
+      "players": [
+        {"name": "Matz Sels", "position": "GK", "age": 32, "rating": 79, "nationality": "Belgium"},
+        {"name": "Frédéric Guilbert", "position": "RB", "age": 29, "rating": 76, "nationality": "France"},
+        {"name": "Gerzino Nyamsi", "position": "CB", "age": 27, "rating": 76, "nationality": "France"},
+        {"name": "Abakar Sylla", "position": "CB", "age": 22, "rating": 75, "nationality": "Ivory Coast"},
+        {"name": "Diego Moreira", "position": "LB", "age": 20, "rating": 74, "nationality": "Portugal"},
+        {"name": "Ibrahima Sissoko", "position": "CDM", "age": 26, "rating": 77, "nationality": "Mali"},
+        {"name": "Andrey Santos", "position": "CM", "age": 20, "rating": 76, "nationality": "Brazil"},
+        {"name": "Habib Diarra", "position": "CM", "age": 20, "rating": 76, "nationality": "Senegal"},
+        {"name": "Dilane Bakwa", "position": "RW", "age": 22, "rating": 77, "nationality": "France"},
+        {"name": "Emanuel Emegha", "position": "ST", "age": 21, "rating": 76, "nationality": "Netherlands"},
+        {"name": "Moïse Sahi", "position": "LW", "age": 22, "rating": 75, "nationality": "Ivory Coast"}
+      ]
+    },
+    {
+      "name": "FC Nantes",
+      "short_name": "Nantes",
+      "players": [
+        {"name": "Alban Lafont", "position": "GK", "age": 25, "rating": 79, "nationality": "France"},
+        {"name": "Marcus Coco", "position": "RB", "age": 28, "rating": 76, "nationality": "France"},
+        {"name": "Nicolas Pallois", "position": "CB", "age": 36, "rating": 75, "nationality": "France"},
+        {"name": "Jean-Charles Castelletto", "position": "CB", "age": 29, "rating": 76, "nationality": "Cameroon"},
+        {"name": "Quentin Merlin", "position": "LB", "age": 22, "rating": 77, "nationality": "France"},
+        {"name": "Pedro Chirivella", "position": "CDM", "age": 27, "rating": 77, "nationality": "Spain"},
+        {"name": "Moussa Sissoko", "position": "CM", "age": 35, "rating": 77, "nationality": "France"},
+        {"name": "Florent Mollet", "position": "CAM", "age": 32, "rating": 77, "nationality": "France"},
+        {"name": "Mostafa Mohamed", "position": "ST", "age": 26, "rating": 78, "nationality": "Egypt"},
+        {"name": "Matthis Abline", "position": "ST", "age": 21, "rating": 75, "nationality": "France"},
+        {"name": "Abdoul Kader Bamba", "position": "LW", "age": 30, "rating": 76, "nationality": "Ivory Coast"}
+      ]
+    },
+    {
+      "name": "Toulouse FC",
+      "short_name": "TFC",
+      "players": [
+        {"name": "Guillaume Restes", "position": "GK", "age": 19, "rating": 76, "nationality": "France"},
+        {"name": "Mikkel Desler", "position": "RB", "age": 29, "rating": 75, "nationality": "Denmark"},
+        {"name": "Rasmus Nicolaisen", "position": "CB", "age": 27, "rating": 77, "nationality": "Denmark"},
+        {"name": "Logan Costa", "position": "CB", "age": 23, "rating": 76, "nationality": "Cape Verde"},
+        {"name": "Gabriel Suazo", "position": "LB", "age": 27, "rating": 76, "nationality": "Chile"},
+        {"name": "Vincent Sierro", "position": "CDM", "age": 28, "rating": 77, "nationality": "Switzerland"},
+        {"name": "Aron Dønnum", "position": "CM", "age": 26, "rating": 75, "nationality": "Norway"},
+        {"name": "Cristian Cásseres Jr.", "position": "CM", "age": 24, "rating": 76, "nationality": "Venezuela"},
+        {"name": "Yann Gboho", "position": "RW", "age": 23, "rating": 75, "nationality": "France"},
+        {"name": "Thijs Dallinga", "position": "ST", "age": 23, "rating": 77, "nationality": "Netherlands"},
+        {"name": "Zakaria Aboukhlal", "position": "LW", "age": 24, "rating": 77, "nationality": "Morocco"}
+      ]
+    },
+    {
+      "name": "Montpellier HSC",
+      "short_name": "MHSC",
+      "players": [
+        {"name": "Benjamin Lecomte", "position": "GK", "age": 33, "rating": 77, "nationality": "France"},
+        {"name": "Enzo Tchato", "position": "RB", "age": 22, "rating": 74, "nationality": "Cameroon"},
+        {"name": "Kiki Kouyaté", "position": "CB", "age": 34, "rating": 76, "nationality": "Mali"},
+        {"name": "Maxime Estève", "position": "CB", "age": 22, "rating": 74, "nationality": "France"},
+        {"name": "Issiaga Sylla", "position": "LB", "age": 31, "rating": 76, "nationality": "Guinea"},
+        {"name": "Joris Chotard", "position": "CDM", "age": 23, "rating": 76, "nationality": "France"},
+        {"name": "Téji Savanier", "position": "CAM", "age": 32, "rating": 79, "nationality": "France"},
+        {"name": "Falaye Sacko", "position": "RW", "age": 29, "rating": 75, "nationality": "Mali"},
+        {"name": "Akor Adams", "position": "ST", "age": 24, "rating": 76, "nationality": "Nigeria"},
+        {"name": "Mousa Al-Tamari", "position": "LW", "age": 27, "rating": 77, "nationality": "Jordan"},
+        {"name": "Arnaud Nordin", "position": "RW", "age": 26, "rating": 75, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Stade Brestois",
+      "short_name": "Brest",
+      "players": [
+        {"name": "Marco Bizot", "position": "GK", "age": 33, "rating": 78, "nationality": "Netherlands"},
+        {"name": "Kenny Lala", "position": "RB", "age": 32, "rating": 76, "nationality": "France"},
+        {"name": "Brendan Chardonnet", "position": "CB", "age": 29, "rating": 77, "nationality": "France"},
+        {"name": "Lilian Brassier", "position": "CB", "age": 24, "rating": 76, "nationality": "France"},
+        {"name": "Bradley Locko", "position": "LB", "age": 22, "rating": 75, "nationality": "France"},
+        {"name": "Pierre Lees-Melou", "position": "CM", "age": 31, "rating": 77, "nationality": "France"},
+        {"name": "Hugo Magnetti", "position": "CM", "age": 26, "rating": 75, "nationality": "France"},
+        {"name": "Mahdi Camara", "position": "CM", "age": 26, "rating": 76, "nationality": "France"},
+        {"name": "Romain Del Castillo", "position": "RW", "age": 28, "rating": 78, "nationality": "France"},
+        {"name": "Jeremy Le Douaron", "position": "ST", "age": 26, "rating": 75, "nationality": "France"},
+        {"name": "Mathias Pereira Lage", "position": "LW", "age": 27, "rating": 76, "nationality": "Portugal"}
+      ]
+    },
+    {
+      "name": "Le Havre AC",
+      "short_name": "HAC",
+      "players": [
+        {"name": "Arthur Desmas", "position": "GK", "age": 29, "rating": 75, "nationality": "France"},
+        {"name": "Christopher Opéri", "position": "RB", "age": 25, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Etienne Youté", "position": "CB", "age": 23, "rating": 74, "nationality": "France"},
+        {"name": "Gautier Hein", "position": "CB", "age": 22, "rating": 73, "nationality": "France"},
+        {"name": "Yoann Salmier", "position": "CB", "age": 31, "rating": 75, "nationality": "France"},
+        {"name": "Yassine Kechta", "position": "CDM", "age": 22, "rating": 73, "nationality": "France"},
+        {"name": "Daler Kuzyaev", "position": "CM", "age": 31, "rating": 76, "nationality": "Russia"},
+        {"name": "Abdoulaye Touré", "position": "CM", "age": 30, "rating": 75, "nationality": "Guinea"},
+        {"name": "Josué", "position": "RW", "age": 24, "rating": 74, "nationality": "Angola"},
+        {"name": "Mohamed Bayo", "position": "ST", "age": 26, "rating": 76, "nationality": "Guinea"},
+        {"name": "Emmanuel Sabbi", "position": "LW", "age": 26, "rating": 74, "nationality": "USA"}
+      ]
+    },
+    {
+      "name": "FC Metz",
+      "short_name": "Metz",
+      "players": [
+        {"name": "Alexandre Oukidja", "position": "GK", "age": 35, "rating": 76, "nationality": "Algeria"},
+        {"name": "Mikael Tavares", "position": "RB", "age": 23, "rating": 73, "nationality": "France"},
+        {"name": "Ismaël Traoré", "position": "CB", "age": 37, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Maxime Colin", "position": "CB", "age": 32, "rating": 74, "nationality": "France"},
+        {"name": "Matthieu Udol", "position": "LB", "age": 27, "rating": 73, "nationality": "France"},
+        {"name": "Danley Jean Jacques", "position": "CDM", "age": 24, "rating": 74, "nationality": "Haiti"},
+        {"name": "Lamine Camara", "position": "CM", "age": 20, "rating": 75, "nationality": "Senegal"},
+        {"name": "Simon Elisor", "position": "ST", "age": 25, "rating": 75, "nationality": "France"},
+        {"name": "Georges Mikautadze", "position": "ST", "age": 23, "rating": 77, "nationality": "Georgia"},
+        {"name": "Ablie Jallow", "position": "RW", "age": 25, "rating": 74, "nationality": "Gambia"},
+        {"name": "Cheikh Sabaly", "position": "LW", "age": 22, "rating": 73, "nationality": "Senegal"}
+      ]
+    },
+    {
+      "name": "Clermont Foot",
+      "short_name": "Clermont",
+      "players": [
+        {"name": "Mory Diaw", "position": "GK", "age": 30, "rating": 75, "nationality": "Senegal"},
+        {"name": "Alidu Seidu", "position": "RB", "age": 24, "rating": 74, "nationality": "Ghana"},
+        {"name": "Florent Ogier", "position": "CB", "age": 35, "rating": 74, "nationality": "France"},
+        {"name": "Muhammed Cham", "position": "CB", "age": 24, "rating": 73, "nationality": "Austria"},
+        {"name": "Neto Borges", "position": "LB", "age": 27, "rating": 74, "nationality": "Brazil"},
+        {"name": "Johan Gastien", "position": "CDM", "age": 36, "rating": 74, "nationality": "France"},
+        {"name": "Maximiliano Caufriez", "position": "CM", "age": 27, "rating": 74, "nationality": "Belgium"},
+        {"name": "Shamar Nicholson", "position": "ST", "age": 27, "rating": 76, "nationality": "Jamaica"},
+        {"name": "Grejohn Kyei", "position": "ST", "age": 28, "rating": 75, "nationality": "France"},
+        {"name": "Elbasan Rashani", "position": "RW", "age": 31, "rating": 74, "nationality": "Kosovo"},
+        {"name": "Jim Allevinah", "position": "LW", "age": 29, "rating": 75, "nationality": "Gabon"}
+      ]
+    }
+  ],
+  "ligue2": [
+    {
+      "name": "FC Metz",
+      "short_name": "Metz",
+      "players": [
+        {"name": "Alexandre Oukidja", "position": "GK", "age": 35, "rating": 76, "nationality": "Algeria"},
+        {"name": "Matthieu Udol", "position": "RB", "age": 27, "rating": 73, "nationality": "France"},
+        {"name": "Ismaël Traoré", "position": "CB", "age": 37, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Maxime Colin", "position": "CB", "age": 32, "rating": 74, "nationality": "France"},
+        {"name": "Naatan Skyttä", "position": "LB", "age": 22, "rating": 72, "nationality": "Finland"},
+        {"name": "Danley Jean Jacques", "position": "CDM", "age": 24, "rating": 74, "nationality": "Haiti"},
+        {"name": "Lamine Camara", "position": "CM", "age": 20, "rating": 75, "nationality": "Senegal"},
+        {"name": "Simon Elisor", "position": "ST", "age": 25, "rating": 75, "nationality": "France"},
+        {"name": "Georges Mikautadze", "position": "ST", "age": 23, "rating": 77, "nationality": "Georgia"},
+        {"name": "Ablie Jallow", "position": "RW", "age": 25, "rating": 74, "nationality": "Gambia"},
+        {"name": "Cheikh Sabaly", "position": "LW", "age": 22, "rating": 73, "nationality": "Senegal"}
+      ]
+    },
+    {
+      "name": "AJ Auxerre",
+      "short_name": "Auxerre",
+      "players": [
+        {"name": "Léon Butin", "position": "GK", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Paul Joly", "position": "RB", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Jubal", "position": "CB", "age": 30, "rating": 75, "nationality": "Brazil"},
+        {"name": "Théo Pellenard", "position": "CB", "age": 29, "rating": 74, "nationality": "France"},
+        {"name": "Francis Kiéhé", "position": "LB", "age": 21, "rating": 71, "nationality": "France"},
+        {"name": "Lassine Sinayoko", "position": "ST", "age": 24, "rating": 75, "nationality": "Mali"},
+        {"name": "Hamed Junior Traorè", "position": "CAM", "age": 24, "rating": 75, "nationality": "Ivory Coast"},
+        {"name": "Elisha Owusu", "position": "CDM", "age": 26, "rating": 74, "nationality": "Ghana"},
+        {"name": "Ado Onaiwu", "position": "ST", "age": 28, "rating": 75, "nationality": "Japan"},
+        {"name": "Florian Ayé", "position": "ST", "age": 27, "rating": 74, "nationality": "France"},
+        {"name": "Rayan Raveloson", "position": "CM", "age": 26, "rating": 74, "nationality": "Madagascar"}
+      ]
+    },
+    {
+      "name": "AS Saint-Étienne",
+      "short_name": "ASSE",
+      "players": [
+        {"name": "Gautier Larsonneur", "position": "GK", "age": 27, "rating": 75, "nationality": "France"},
+        {"name": "Petar Bošnjak", "position": "RB", "age": 24, "rating": 73, "nationality": "Serbia"},
+        {"name": "Léo Pétrot", "position": "CB", "age": 27, "rating": 75, "nationality": "France"},
+        {"name": "Timothée Kolodziejczak", "position": "CB", "age": 32, "rating": 74, "nationality": "France"},
+        {"name": "Zuriko Davitashvili", "position": "LW", "age": 23, "rating": 76, "nationality": "Georgia"},
+        {"name": "Benjamin Bouchouari", "position": "CM", "age": 22, "rating": 74, "nationality": "Morocco"},
+        {"name": "Aïmen Moueffek", "position": "CDM", "age": 25, "rating": 74, "nationality": "France"},
+        {"name": "Ibrahim Sissoko", "position": "ST", "age": 28, "rating": 75, "nationality": "Mali"},
+        {"name": "Mathieu Cafaro", "position": "RW", "age": 27, "rating": 74, "nationality": "France"},
+        {"name": "Dylan Chambost", "position": "CM", "age": 26, "rating": 74, "nationality": "France"},
+        {"name": "Augustin Boissy", "position": "LB", "age": 20, "rating": 70, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Paris FC",
+      "short_name": "PFC",
+      "players": [
+        {"name": "Julien Ponceau", "position": "GK", "age": 25, "rating": 73, "nationality": "France"},
+        {"name": "Steven Fortès", "position": "CB", "age": 32, "rating": 74, "nationality": "Cape Verde"},
+        {"name": "Karim Ndour", "position": "CB", "age": 24, "rating": 72, "nationality": "Senegal"},
+        {"name": "Jorge Chula", "position": "RB", "age": 23, "rating": 72, "nationality": "Portugal"},
+        {"name": "Enric Llaverias", "position": "LB", "age": 24, "rating": 72, "nationality": "Spain"},
+        {"name": "Morgan Guilavogui", "position": "ST", "age": 26, "rating": 75, "nationality": "France"},
+        {"name": "Ibrahim Mbodi", "position": "CDM", "age": 23, "rating": 73, "nationality": "Senegal"},
+        {"name": "Ryan Mendes", "position": "RW", "age": 34, "rating": 74, "nationality": "Cape Verde"},
+        {"name": "Loum Tchaouna", "position": "LW", "age": 20, "rating": 74, "nationality": "Chad"},
+        {"name": "Quentin Cornette", "position": "LW", "age": 29, "rating": 74, "nationality": "France"},
+        {"name": "Andalou Dramé", "position": "CM", "age": 21, "rating": 71, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "SM Caen",
+      "short_name": "Caen",
+      "players": [
+        {"name": "Donald Guerrier", "position": "GK", "age": 35, "rating": 74, "nationality": "Haiti"},
+        {"name": "Emmanuel Nduah", "position": "RB", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Yanis Merdji", "position": "CB", "age": 25, "rating": 73, "nationality": "France"},
+        {"name": "Abdoulaye Keita", "position": "CB", "age": 29, "rating": 74, "nationality": "Mali"},
+        {"name": "Cédric Hountondji", "position": "LB", "age": 30, "rating": 74, "nationality": "Benin"},
+        {"name": "Habib Keïta", "position": "CDM", "age": 26, "rating": 74, "nationality": "Mali"},
+        {"name": "Alexandre Bonnet", "position": "CM", "age": 33, "rating": 73, "nationality": "France"},
+        {"name": "Quentin Daubin", "position": "CM", "age": 32, "rating": 74, "nationality": "France"},
+        {"name": "Sambou Soumano", "position": "LW", "age": 24, "rating": 74, "nationality": "France"},
+        {"name": "Anas Namri", "position": "ST", "age": 23, "rating": 73, "nationality": "France"},
+        {"name": "Lenny Nangi", "position": "RW", "age": 22, "rating": 72, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Amiens SC",
+      "short_name": "Amiens",
+      "players": [
+        {"name": "Régis Gurtner", "position": "GK", "age": 37, "rating": 74, "nationality": "France"},
+        {"name": "Anthoine Rancher", "position": "RB", "age": 24, "rating": 72, "nationality": "France"},
+        {"name": "Moussa Fofana", "position": "CB", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Abdoulaye Bâ", "position": "CB", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Ibrahim Koné", "position": "LB", "age": 25, "rating": 73, "nationality": "Mali"},
+        {"name": "Alexis Blin", "position": "CDM", "age": 27, "rating": 74, "nationality": "France"},
+        {"name": "Renaud Cohade", "position": "CM", "age": 39, "rating": 72, "nationality": "France"},
+        {"name": "Gaël Kakuta", "position": "CAM", "age": 33, "rating": 75, "nationality": "DR Congo"},
+        {"name": "M'Baye Niang", "position": "ST", "age": 29, "rating": 75, "nationality": "Senegal"},
+        {"name": "Elias Filet", "position": "ST", "age": 20, "rating": 71, "nationality": "France"},
+        {"name": "Assane Dioussé", "position": "CM", "age": 26, "rating": 73, "nationality": "Senegal"}
+      ]
+    },
+    {
+      "name": "Grenoble Foot",
+      "short_name": "GF38",
+      "players": [
+        {"name": "Mauro Goicoechea", "position": "GK", "age": 36, "rating": 74, "nationality": "Uruguay"},
+        {"name": "Vicky Lambole", "position": "RB", "age": 22, "rating": 71, "nationality": "France"},
+        {"name": "Matthis Abline", "position": "CB", "age": 21, "rating": 72, "nationality": "France"},
+        {"name": "Badou Falaye", "position": "CB", "age": 27, "rating": 73, "nationality": "Mali"},
+        {"name": "Clement Villien", "position": "LB", "age": 24, "rating": 72, "nationality": "France"},
+        {"name": "Oscar Cortes", "position": "LW", "age": 20, "rating": 73, "nationality": "Colombia"},
+        {"name": "Malick Mbaye", "position": "RW", "age": 19, "rating": 72, "nationality": "Senegal"},
+        {"name": "Kévin N'Doram", "position": "CDM", "age": 28, "rating": 74, "nationality": "France"},
+        {"name": "Thierry Small", "position": "LB", "age": 24, "rating": 72, "nationality": "England"},
+        {"name": "Franck Honorat", "position": "RW", "age": 27, "rating": 74, "nationality": "France"},
+        {"name": "Ahmed Touba", "position": "CB", "age": 26, "rating": 73, "nationality": "Algeria"}
+      ]
+    },
+    {
+      "name": "EA Guingamp",
+      "short_name": "EAG",
+      "players": [
+        {"name": "Karl-Johan Johnsson", "position": "GK", "age": 34, "rating": 75, "nationality": "Sweden"},
+        {"name": "Enzo Le Fée", "position": "CM", "age": 24, "rating": 76, "nationality": "France"},
+        {"name": "Yannick Kamberi", "position": "LW", "age": 24, "rating": 73, "nationality": "Switzerland"},
+        {"name": "Jérémy Livolant", "position": "RW", "age": 26, "rating": 74, "nationality": "France"},
+        {"name": "Sidiki Camara", "position": "ST", "age": 22, "rating": 73, "nationality": "France"},
+        {"name": "Yohann Magnin", "position": "CDM", "age": 26, "rating": 74, "nationality": "France"},
+        {"name": "Sekou Legba", "position": "RB", "age": 21, "rating": 71, "nationality": "Ivory Coast"},
+        {"name": "Piccoli", "position": "ST", "age": 23, "rating": 74, "nationality": "France"},
+        {"name": "Thomas Delaine", "position": "LB", "age": 31, "rating": 74, "nationality": "France"},
+        {"name": "Imran Louza", "position": "CM", "age": 25, "rating": 74, "nationality": "Morocco"},
+        {"name": "Cheick Traoré", "position": "CB", "age": 23, "rating": 72, "nationality": "Mali"}
+      ]
+    },
+    {
+      "name": "SC Bastia",
+      "short_name": "Bastia",
+      "players": [
+        {"name": "Farid Boulaya", "position": "CM", "age": 31, "rating": 75, "nationality": "Algeria"},
+        {"name": "Aissene Sylla", "position": "ST", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Mickaël Alphonse", "position": "RB", "age": 34, "rating": 73, "nationality": "France"},
+        {"name": "Lynel Kitambala", "position": "LW", "age": 35, "rating": 74, "nationality": "France"},
+        {"name": "Abdoulaye Cissé", "position": "CB", "age": 26, "rating": 73, "nationality": "Guinea"},
+        {"name": "Santiago Ormeño", "position": "ST", "age": 30, "rating": 74, "nationality": "Peru"},
+        {"name": "Khalid Boutaïb", "position": "ST", "age": 36, "rating": 74, "nationality": "Morocco"},
+        {"name": "Valentin Jacob", "position": "CM", "age": 29, "rating": 73, "nationality": "France"},
+        {"name": "Andy Pelmard", "position": "CB", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Sinaly Diomandé", "position": "CB", "age": 23, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Benjamin Leroy", "position": "GK", "age": 35, "rating": 74, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "US Concarneau",
+      "short_name": "Concarneau",
+      "players": [
+        {"name": "Tristan Morin", "position": "GK", "age": 27, "rating": 72, "nationality": "France"},
+        {"name": "Axel Camille", "position": "RB", "age": 24, "rating": 71, "nationality": "France"},
+        {"name": "Rémy Vita", "position": "LB", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Antoine Leautey", "position": "RW", "age": 27, "rating": 74, "nationality": "France"},
+        {"name": "Cricket", "position": "CM", "age": 31, "rating": 73, "nationality": "France"},
+        {"name": "Keyne Chedeville", "position": "ST", "age": 22, "rating": 71, "nationality": "France"},
+        {"name": "Gauthier Papon", "position": "CDM", "age": 31, "rating": 73, "nationality": "France"},
+        {"name": "Fanol Perdedaj", "position": "CM", "age": 33, "rating": 73, "nationality": "Kosovo"},
+        {"name": "Sidiki Cherif", "position": "ST", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Youssouf M'Changama", "position": "CM", "age": 33, "rating": 74, "nationality": "Comoros"},
+        {"name": "Lukas Fernandes", "position": "CB", "age": 26, "rating": 72, "nationality": "Denmark"}
+      ]
+    },
+    {
+      "name": "Pau FC",
+      "short_name": "Pau",
+      "players": [
+        {"name": "Benoît Costil", "position": "GK", "age": 36, "rating": 75, "nationality": "France"},
+        {"name": "Julien Ponceau", "position": "CM", "age": 25, "rating": 73, "nationality": "France"},
+        {"name": "Idrissa Diallo", "position": "RB", "age": 24, "rating": 72, "nationality": "France"},
+        {"name": "Xavier Mercier", "position": "CAM", "age": 34, "rating": 74, "nationality": "France"},
+        {"name": "Robson Bambu", "position": "CB", "age": 26, "rating": 74, "nationality": "Brazil"},
+        {"name": "Mosquito", "position": "LB", "age": 25, "rating": 73, "nationality": "Brazil"},
+        {"name": "Kensy Ngwisdje", "position": "CDM", "age": 22, "rating": 71, "nationality": "France"},
+        {"name": "Aminou Bouba", "position": "ST", "age": 25, "rating": 73, "nationality": "Cameroon"},
+        {"name": "Andy Diouf", "position": "CM", "age": 21, "rating": 73, "nationality": "France"},
+        {"name": "Masaaki Higashiguchi", "position": "GK", "age": 38, "rating": 73, "nationality": "Japan"},
+        {"name": "Tidiane Toure", "position": "ST", "age": 20, "rating": 71, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Troyes AC",
+      "short_name": "Troyes",
+      "players": [
+        {"name": "Arnaud Bodart", "position": "GK", "age": 26, "rating": 75, "nationality": "France"},
+        {"name": "Yoann Salmier", "position": "CB", "age": 31, "rating": 75, "nationality": "France"},
+        {"name": "Florian Tardieu", "position": "CM", "age": 31, "rating": 75, "nationality": "France"},
+        {"name": "Wilson Odobert", "position": "LW", "age": 19, "rating": 75, "nationality": "France"},
+        {"name": "Renaud Ripart", "position": "ST", "age": 31, "rating": 74, "nationality": "France"},
+        {"name": "Mama Baldé", "position": "RW", "age": 28, "rating": 74, "nationality": "Guinea-Bissau"},
+        {"name": "Lucas Eschbach", "position": "RB", "age": 29, "rating": 73, "nationality": "France"},
+        {"name": "Adrien Truffert", "position": "LB", "age": 22, "rating": 78, "nationality": "France"},
+        {"name": "Yasser Larouci", "position": "LB", "age": 23, "rating": 74, "nationality": "Algeria"},
+        {"name": "Birama Touré", "position": "CDM", "age": 32, "rating": 74, "nationality": "Mali"},
+        {"name": "Abdoul Kaboré", "position": "RB", "age": 23, "rating": 75, "nationality": "Burkina Faso"}
+      ]
+    },
+    {
+      "name": "Dunkerque",
+      "short_name": "Dunkerque",
+      "players": [
+        {"name": "Arthur Desmas", "position": "GK", "age": 29, "rating": 75, "nationality": "France"},
+        {"name": "Jimmy Cabot", "position": "RW", "age": 30, "rating": 74, "nationality": "France"},
+        {"name": "Nolan Mbemba", "position": "CDM", "age": 29, "rating": 74, "nationality": "France"},
+        {"name": "Ambroise Gboho", "position": "LW", "age": 23, "rating": 73, "nationality": "France"},
+        {"name": "Basile Camerling", "position": "ST", "age": 32, "rating": 73, "nationality": "France"},
+        {"name": "Mehdi Boudjemaa", "position": "CM", "age": 25, "rating": 73, "nationality": "France"},
+        {"name": "Fethi Harel", "position": "RB", "age": 23, "rating": 71, "nationality": "France"},
+        {"name": "Lenny Nangi", "position": "RW", "age": 22, "rating": 72, "nationality": "France"},
+        {"name": "Cheick Traoré", "position": "CB", "age": 23, "rating": 72, "nationality": "Mali"},
+        {"name": "Sidiki Cherif", "position": "ST", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Karim Coulibaly", "position": "CB", "age": 25, "rating": 72, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Rodez AF",
+      "short_name": "Rodez",
+      "players": [
+        {"name": "Petar Bošnjak", "position": "GK", "age": 24, "rating": 73, "nationality": "Serbia"},
+        {"name": "Ado Onaiwu", "position": "ST", "age": 28, "rating": 75, "nationality": "Japan"},
+        {"name": "Umut Bozok", "position": "ST", "age": 27, "rating": 74, "nationality": "Turkey"},
+        {"name": "Correntin Jakob", "position": "CM", "age": 24, "rating": 72, "nationality": "France"},
+        {"name": "Leroy Labylle", "position": "RB", "age": 32, "rating": 73, "nationality": "France"},
+        {"name": "Naathan Skyttä", "position": "LB", "age": 22, "rating": 72, "nationality": "Finland"},
+        {"name": "Clément Depres", "position": "ST", "age": 29, "rating": 74, "nationality": "France"},
+        {"name": "Said Hamulic", "position": "LW", "age": 23, "rating": 73, "nationality": "Bosnia"},
+        {"name": "Valentin Vada", "position": "CAM", "age": 28, "rating": 74, "nationality": "France"},
+        {"name": "Enzo Feutrier", "position": "GK", "age": 23, "rating": 71, "nationality": "France"},
+        {"name": "Lamine Ghezali", "position": "RW", "age": 21, "rating": 72, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Laval",
+      "short_name": "Laval",
+      "players": [
+        {"name": "Benjamin Leroy", "position": "GK", "age": 35, "rating": 74, "nationality": "France"},
+        {"name": "Augustin Lux", "position": "GK", "age": 23, "rating": 71, "nationality": "France"},
+        {"name": "Gael Angoula", "position": "RB", "age": 23, "rating": 72, "nationality": "France"},
+        {"name": "Bakary Sako", "position": "LB", "age": 25, "rating": 73, "nationality": "Mali"},
+        {"name": "Caleb Zady Sery", "position": "CB", "age": 23, "rating": 72, "nationality": "Ivory Coast"},
+        {"name": "Mohamed Bamba", "position": "CDM", "age": 33, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Yassin Fortuné", "position": "LW", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Ilan Kenneh", "position": "ST", "age": 22, "rating": 72, "nationality": "France"},
+        {"name": "Redwan Bourles", "position": "CM", "age": 21, "rating": 71, "nationality": "France"},
+        {"name": "Tom Monconduit", "position": "CM", "age": 33, "rating": 74, "nationality": "France"},
+        {"name": "Mamadou Thiam", "position": "ST", "age": 29, "rating": 74, "nationality": "Senegal"}
+      ]
+    },
+    {
+      "name": "Ajaccio",
+      "short_name": "Ajaccio",
+      "players": [
+        {"name": "Benjamin Leroy", "position": "GK", "age": 35, "rating": 74, "nationality": "France"},
+        {"name": "Quentin Bernard", "position": "LB", "age": 34, "rating": 74, "nationality": "France"},
+        {"name": "Cody Drucker", "position": "ST", "age": 21, "rating": 72, "nationality": "France"},
+        {"name": "Mehdi Maououb", "position": "CB", "age": 25, "rating": 72, "nationality": "France"},
+        {"name": "Juvhel Tsoumou", "position": "ST", "age": 33, "rating": 73, "nationality": "Germany"},
+        {"name": "Faïz Selemani", "position": "RW", "age": 30, "rating": 74, "nationality": "Comoros"},
+        {"name": "Mickaël Barreto", "position": "CM", "age": 32, "rating": 73, "nationality": "France"},
+        {"name": "Cristian Cásseres Jr.", "position": "CM", "age": 24, "rating": 76, "nationality": "Venezuela"},
+        {"name": "Riyad Mahrez", "position": "RW", "age": 33, "rating": 85, "nationality": "Algeria"},
+        {"name": "Yassin Fortune", "position": "LW", "age": 24, "rating": 73, "nationality": "France"},
+        {"name": "Keny Robo", "position": "RB", "age": 28, "rating": 74, "nationality": "France"}
+      ]
+    },
+    {
+      "name": "Angers SCO",
+      "short_name": "Angers",
+      "players": [
+        {"name": "Yahia Fofana", "position": "GK", "age": 26, "rating": 75, "nationality": "France"},
+        {"name": "Jean-Noël Amonome", "position": "RB", "age": 22, "rating": 72, "nationality": "France"},
+        {"name": "Cédric Hountondji", "position": "CB", "age": 30, "rating": 74, "nationality": "Benin"},
+        {"name": "Rayan Tiéhi", "position": "CDM", "age": 26, "rating": 74, "nationality": "Ivory Coast"},
+        {"name": "Himad Abdelli", "position": "CM", "age": 24, "rating": 75, "nationality": "Algeria"},
+        {"name": "Ibrahima Niane", "position": "ST", "age": 25, "rating": 74, "nationality": "Senegal"},
+        {"name": "Nabil Bentaleb", "position": "CM", "age": 29, "rating": 77, "nationality": "Algeria"},
+        {"name": "Zinedine Ould Khaled", "position": "CAM", "age": 22, "rating": 73, "nationality": "France"},
+        {"name": "Simone Romagnoli", "position": "CB", "age": 34, "rating": 74, "nationality": "Italy"},
+        {"name": "Adrien Hunou", "position": "LW", "age": 30, "rating": 75, "nationality": "France"},
+        {"name": "Renan Poezebara", "position": "LB", "age": 23, "rating": 72, "nationality": "France"}
+      ]
+    }
+  ]
+}
