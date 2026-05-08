@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Career Game</title>
+    <title>Football Career Simulator Pro</title>
     <style>
         * {
             margin: 0;
@@ -13,253 +13,846 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            color: white;
-            padding: 20px;
+            color: #fff;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3em;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
         }
 
-        .game-screen {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        .subtitle {
+            color: #aaa;
+            font-size: 1.2em;
         }
 
-        .stats-panel {
+        .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.15);
+        @media (max-width: 1200px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .panel:hover {
+            transform: translateY(-5px);
+        }
+
+        .panel-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #00d9ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .player-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: rgba(0, 0, 0, 0.3);
             padding: 15px;
             border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #00d9ff;
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .stat-name {
+            font-weight: bold;
         }
 
         .stat-value {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #4CAF50;
+            color: #00ff88;
         }
 
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-top: 5px;
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .action-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border-radius: 4px;
+            transition: width 0.5s ease;
         }
 
-        .btn {
-            padding: 15px 25px;
-            border: none;
+        .energy-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            font-size: 1em;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .energy-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            color: #1a1a2e;
             font-weight: bold;
+            font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
-        .btn-train {
-            background: linear-gradient(45deg, #FF6B6B, #EE5A6F);
-            color: white;
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
         }
 
-        .btn-match {
-            background: linear-gradient(45deg, #4CAF50, #45a049);
-            color: white;
-        }
-
-        .btn-rest {
-            background: linear-gradient(45deg, #2196F3, #1976D2);
-            color: white;
-        }
-
-        .btn-transfer {
-            background: linear-gradient(45deg, #FF9800, #F57C00);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn:disabled {
+        .action-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
 
-        .message-area {
-            background: rgba(0, 0, 0, 0.3);
+        .action-icon {
+            font-size: 2em;
+        }
+
+        .match-result {
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
-            border-radius: 10px;
-            min-height: 100px;
-            margin-bottom: 20px;
-        }
-
-        .message {
-            line-height: 1.6;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            transition: width 0.5s ease;
-        }
-
-        .career-info {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-top: 20px;
-        }
-
-        .hidden {
             display: none;
         }
 
+        .match-result.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            font-size: 3em;
+            margin: 20px 0;
+        }
+
+        .team-name {
+            font-size: 0.5em;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .match-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .match-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .news-feed {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .news-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #00ff88;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .news-date {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .transfer-panel {
+            display: none;
+        }
+
+        .transfer-panel.active {
+            display: block;
+        }
+
+        .club-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .club-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .club-item.interested {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .club-item.current {
+            border-color: #00d9ff;
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .club-info h4 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .club-details {
+            display: flex;
+            gap: 20px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        .transfer-btn {
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .transfer-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .transfer-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             padding: 40px;
-            border-radius: 15px;
-            text-align: center;
+            border-radius: 20px;
             max-width: 500px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: modalSlide 0.5s ease;
         }
 
-        .skill-bars {
-            margin: 20px 0;
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .skill-item {
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00d9ff;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .start-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            border: none;
+            border-radius: 10px;
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .achievement {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            border: 2px solid #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .achievement-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .contract-info {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .salary-display {
+            font-size: 2em;
+            color: #00ff88;
+            text-align: center;
             margin: 10px 0;
         }
 
-        .skill-name {
+        .reputation-bar {
+            width: 100%;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .reputation-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #00ff88);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .injury-indicator {
+            display: none;
+            background: rgba(255, 107, 107, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .injury-indicator.active {
+            display: block;
+        }
+
+        .morale-display {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .morale-emoji {
+            font-size: 2em;
+        }
+
+        .season-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .season-stat {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 2em;
+            color: #00d9ff;
+            font-weight: bold;
+        }
+
+        .season-stat-label {
+            color: #aaa;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>⚽ Football Career Game</h1>
-        
-        <div id="startScreen" class="game-screen">
-            <h2 style="text-align: center; margin-bottom: 20px;">Create Your Player</h2>
-            <div style="max-width: 400px; margin: 0 auto;">
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 5px;">Player Name:</label>
-                    <input type="text" id="playerName" placeholder="Enter your name" 
-                           style="width: 100%; padding: 10px; border-radius: 5px; border: none; font-size: 1em;">
+        <header>
+            <h1>⚽ Football Career Simulator Pro</h1>
+            <p class="subtitle">Build your legacy from youth academy to football legend</p>
+        </header>
+
+        <!-- Start Game Modal -->
+        <div id="startModal" class="modal active">
+            <div class="modal-content">
+                <h2 style="text-align: center; margin-bottom: 30px; color: #00d9ff;">Create Your Player</h2>
+                <div class="form-group">
+                    <label class="form-label">Player Name</label>
+                    <input type="text" id="playerName" class="form-input" placeholder="Enter your name">
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 5px;">Position:</label>
-                    <select id="playerPosition" style="width: 100%; padding: 10px; border-radius: 5px; border: none; font-size: 1em;">
-                        <option value="Forward">Forward</option>
-                        <option value="Midfielder">Midfielder</option>
-                        <option value="Defender">Defender</option>
-                        <option value="Goalkeeper">Goalkeeper</option>
+                <div class="form-group">
+                    <label class="form-label">Position</label>
+                    <select id="playerPosition" class="form-select">
+                        <option value="forward">Forward (ST/CF/LW/RW)</option>
+                        <option value="midfielder">Midfielder (CM/CDM/CAM)</option>
+                        <option value="defender">Defender (CB/LB/RB)</option>
+                        <option value="goalkeeper">Goalkeeper (GK)</option>
                     </select>
                 </div>
-                <button class="btn btn-match" onclick="startGame()" style="width: 100%;">Start Career</button>
+                <div class="form-group">
+                    <label class="form-label">Nationality</label>
+                    <select id="playerNationality" class="form-select">
+                        <option value="england">England</option>
+                        <option value="spain">Spain</option>
+                        <option value="germany">Germany</option>
+                        <option value="france">France</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="portugal">Portugal</option>
+                        <option value="italy">Italy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Preferred Foot</label>
+                    <select id="playerFoot" class="form-select">
+                        <option value="right">Right</option>
+                        <option value="left">Left</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <button class="start-btn" onclick="startGame()">Start Career</button>
             </div>
         </div>
 
-        <div id="gameScreen" class="game-screen hidden">
-            <div class="stats-panel">
-                <div class="stat-card">
-                    <div class="stat-value" id="overallRating">60</div>
-                    <div class="stat-label">Overall Rating</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="energy">100</div>
-                    <div class="stat-label">Energy</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="energyBar" style="width: 100%;"></div>
+        <!-- Main Game Interface -->
+        <div id="gameInterface" style="display: none;">
+            <div class="game-grid">
+                <!-- Left Panel: Player Info -->
+                <div class="panel">
+                    <h3 class="panel-title">👤 Player Profile</h3>
+                    <div class="player-info">
+                        <div class="info-item">
+                            <div class="info-label">Name</div>
+                            <div class="info-value" id="playerNameDisplay">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Age</div>
+                            <div class="info-value" id="playerAge">17</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Position</div>
+                            <div class="info-value" id="playerPositionDisplay">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Club</div>
+                            <div class="info-value" id="playerClub">Youth Academy</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Overall Rating</div>
+                            <div class="info-value" id="overallRating">50</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Market Value</div>
+                            <div class="info-value" id="marketValue">€100K</div>
+                        </div>
+                    </div>
+
+                    <div class="contract-info">
+                        <div class="info-label">Weekly Salary</div>
+                        <div class="salary-display" id="weeklySalary">€500</div>
+                        <div class="info-label">Contract Expires</div>
+                        <div class="info-value" id="contractExpiry">2025</div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="info-label">Energy</div>
+                        <div class="energy-bar">
+                            <div class="energy-fill" id="energyBar" style="width: 100%;"></div>
+                        </div>
+                        <div style="text-align: right; margin-top: 5px;" id="energyText">100%</div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="info-label">Reputation</div>
+                        <div class="reputation-bar">
+                            <div class="reputation-fill" id="reputationBar" style="width: 10%;"></div>
+                        </div>
+                        <div style="text-align: right; margin-top: 5px;" id="reputationText">10/100</div>
+                    </div>
+
+                    <div class="morale-display">
+                        <div class="info-label">Morale:</div>
+                        <span class="morale-emoji" id="moraleEmoji">😊</span>
+                        <span id="moraleText">Good</span>
+                    </div>
+
+                    <div class="injury-indicator" id="injuryIndicator">
+                        <strong>⚠️ INJURED</strong>
+                        <div id="injuryDescription">Minor knock - 1 week recovery</div>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="age">17</div>
-                    <div class="stat-label">Age</div>
+
+                <!-- Center Panel: Actions & Match -->
+                <div class="panel">
+                    <h3 class="panel-title">🎮 Career Actions</h3>
+                    
+                    <div class="actions-grid">
+                        <button class="action-btn" onclick="train()" id="trainBtn">
+                            <span class="action-icon">💪</span>
+                            <span>Train</span>
+                            <span style="font-size: 0.8em; font-weight: normal;">-15 Energy</span>
+                        </button>
+                        <button class="action-btn" onclick="playMatch()" id="matchBtn">
+                            <span class="action-icon">⚽</span>
+                            <span>Play Match</span>
+                            <span style="font-size: 0.8em; font-weight: normal;">-25 Energy</span>
+                        </button>
+                        <button class="action-btn" onclick="rest()" id="restBtn">
+                            <span class="action-icon">😴</span>
+                            <span>Rest</span>
+                            <span style="font-size: 0.8em; font-weight: normal;">+30 Energy</span>
+                        </button>
+                        <button class="action-btn" onclick="showTransfers()" id="transfersBtn">
+                            <span class="action-icon">💼</span>
+                            <span>Transfers</span>
+                            <span style="font-size: 0.8em; font-weight: normal;">Explore Offers</span>
+                        </button>
+                    </div>
+
+                    <div class="match-result" id="matchResult">
+                        <h4 style="text-align: center; margin-bottom: 15px;">Match Result</h4>
+                        <div class="score-display">
+                            <div>
+                                <div class="team-name" id="homeTeam">Home</div>
+                                <div id="homeScore">0</div>
+                            </div>
+                            <div>-</div>
+                            <div>
+                                <div class="team-name" id="awayTeam">Away</div>
+                                <div id="awayScore">0</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin: 15px 0;">
+                            <strong>Your Performance:</strong>
+                            <div style="font-size: 2em; color: #00ff88;" id="matchRating">7.5</div>
+                            <div id="matchGoals">Goals: 0 | Assists: 0</div>
+                        </div>
+                        <div class="match-stats">
+                            <div class="match-stat">
+                                <div style="color: #aaa;">Possession</div>
+                                <div id="matchPossession">50%</div>
+                            </div>
+                            <div class="match-stat">
+                                <div style="color: #aaa;">Shots</div>
+                                <div id="matchShots">5</div>
+                            </div>
+                            <div class="match-stat">
+                                <div style="color: #aaa;">Pass Accuracy</div>
+                                <div id="matchPassAccuracy">85%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="season-stats">
+                        <div class="season-stat">
+                            <div class="season-stat-value" id="seasonGoals">0</div>
+                            <div class="season-stat-label">Season Goals</div>
+                        </div>
+                        <div class="season-stat">
+                            <div class="season-stat-value" id="seasonAssists">0</div>
+                            <div class="season-stat-label">Season Assists</div>
+                        </div>
+                        <div class="season-stat">
+                            <div class="season-stat-value" id="seasonMatches">0</div>
+                            <div class="season-stat-label">Matches Played</div>
+                        </div>
+                        <div class="season-stat">
+                            <div class="season-stat-value" id="seasonRating">0.0</div>
+                            <div class="season-stat-label">Avg Rating</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="club">Youth Academy</div>
-                    <div class="stat-label">Current Club</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="goals">0</div>
-                    <div class="stat-label">Career Goals</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="matches">0</div>
-                    <div class="stat-label">Matches Played</div>
+
+                <!-- Right Panel: Stats & News -->
+                <div class="panel">
+                    <h3 class="panel-title">📊 Player Attributes</h3>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Shooting</span>
+                                <span class="stat-value" id="shootingStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="shootingBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Passing</span>
+                                <span class="stat-value" id="passingStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="passingBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Dribbling</span>
+                                <span class="stat-value" id="dribblingStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="dribblingBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Defense</span>
+                                <span class="stat-value" id="defenseStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="defenseBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Pace</span>
+                                <span class="stat-value" id="paceStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="paceBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">Physical</span>
+                                <span class="stat-value" id="physicalStat">50</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="physicalBar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="panel-title" style="margin-top: 30px;">🏆 Achievements</h3>
+                    <div class="achievements">
+                        <div class="achievement" id="achFirstGoal">
+                            <div class="achievement-icon">⚽</div>
+                            <div style="font-size: 0.8em;">First Goal</div>
+                        </div>
+                        <div class="achievement" id="achHatTrick">
+                            <div class="achievement-icon">🎯</div>
+                            <div style="font-size: 0.8em;">Hat-trick</div>
+                        </div>
+                        <div class="achievement" id="achTransfer">
+                            <div class="achievement-icon">💼</div>
+                            <div style="font-size: 0.8em;">First Transfer</div>
+                        </div>
+                        <div class="achievement" id="achCaptain">
+                            <div class="achievement-icon">👑</div>
+                            <div style="font-size: 0.8em;">Captain</div>
+                        </div>
+                        <div class="achievement" id="achLegend">
+                            <div class="achievement-icon">🌟</div>
+                            <div style="font-size: 0.8em;">Legend</div>
+                        </div>
+                        <div class="achievement" id="achChampion">
+                            <div class="achievement-icon">🏆</div>
+                            <div style="font-size: 0.8em;">Champion</div>
+                        </div>
+                    </div>
+
+                    <h3 class="panel-title" style="margin-top: 30px;">📰 News Feed</h3>
+                    <div class="news-feed" id="newsFeed">
+                        <div class="news-item">
+                            <div class="news-date">Day 1</div>
+                            <div>Welcome to your football career! Start training to improve your skills.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="message-area">
-                <div class="message" id="gameMessage">Welcome to your football career! Choose an action to begin.</div>
-            </div>
-
-            <div class="action-buttons">
-                <button class="btn btn-train" onclick="train()">🏋️ Train</button>
-                <button class="btn btn-match" onclick="playMatch()">⚽ Play Match</button>
-                <button class="btn btn-rest" onclick="rest()">😴 Rest</button>
-                <button class="btn btn-transfer" onclick="checkTransfers()">💼 Transfers</button>
-            </div>
-
-            <div class="career-info">
-                <h3 style="margin-bottom: 15px;">Player Skills</h3>
-                <div class="skill-bars" id="skillBars">
-                    <!-- Skills will be populated by JavaScript -->
+            <!-- Transfer Panel -->
+            <div class="panel transfer-panel" id="transferPanel">
+                <h3 class="panel-title">💼 Transfer Market</h3>
+                <button onclick="hideTransfers()" style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-bottom: 20px;">← Back to Career</button>
+                
+                <div class="club-list" id="clubList">
+                    <!-- Clubs will be populated dynamically -->
                 </div>
             </div>
         </div>
@@ -269,215 +862,577 @@
         // Game State
         let player = {
             name: '',
-            position: '',
             age: 17,
-            overall: 60,
+            position: '',
+            nationality: '',
+            foot: '',
             energy: 100,
+            reputation: 10,
+            morale: 70,
+            injured: false,
+            injuryWeeks: 0,
             club: 'Youth Academy',
-            goals: 0,
-            matches: 0,
-            skills: {
-                shooting: 60,
-                passing: 60,
-                dribbling: 60,
-                defense: 60,
-                pace: 60,
-                physical: 60
+            clubLevel: 0,
+            salary: 500,
+            contractYears: 3,
+            overall: 50,
+            marketValue: 100000,
+            stats: {
+                shooting: 50,
+                passing: 50,
+                dribbling: 50,
+                defense: 50,
+                pace: 50,
+                physical: 50
             },
-            careerHighlights: []
+            seasonStats: {
+                goals: 0,
+                assists: 0,
+                matches: 0,
+                totalRating: 0,
+                yellowCards: 0,
+                redCards: 0
+            },
+            careerStats: {
+                goals: 0,
+                assists: 0,
+                matches: 0,
+                hatTricks: 0
+            },
+            achievements: []
         };
 
+        let gameDay = 1;
+        let currentSeason = 1;
+
         const clubs = [
-            { name: 'Youth Academy', minRating: 0 },
-            { name: 'Local FC', minRating: 65 },
-            { name: 'City United', minRating: 70 },
-            { name: 'Regional Stars', minRating: 75 },
-            { name: 'National League Club', minRating: 80 },
-            { name: 'Premier Division', minRating: 85 },
-            { name: 'Elite FC', minRating: 90 },
-            { name: 'Champions Club', minRating: 95 }
+            { name: 'Youth Academy', level: 0, division: 'Youth', salary: 500, requiredOverall: 0 },
+            { name: 'Local FC', level: 1, division: 'League 2', salary: 1500, requiredOverall: 55 },
+            { name: 'City United', level: 2, division: 'League 1', salary: 3500, requiredOverall: 62 },
+            { name: 'Athletic Club', level: 3, division: 'Championship', salary: 8000, requiredOverall: 68 },
+            { name: 'Premier Stars', level: 4, division: 'Premier League', salary: 25000, requiredOverall: 75 },
+            { name: 'Elite FC', level: 5, division: 'Top 4', salary: 75000, requiredOverall: 82 },
+            { name: 'Champions United', level: 6, division: 'UCL Qualifiers', salary: 150000, requiredOverall: 87 },
+            { name: 'Legendary FC', level: 7, division: 'UCL Contenders', salary: 350000, requiredOverall: 92 }
         ];
+
+        const positions = {
+            forward: ['ST', 'CF', 'LW', 'RW'],
+            midfielder: ['CM', 'CDM', 'CAM'],
+            defender: ['CB', 'LB', 'RB'],
+            goalkeeper: ['GK']
+        };
 
         function startGame() {
             const name = document.getElementById('playerName').value.trim();
-            const position = document.getElementById('playerPosition').value;
-            
             if (!name) {
-                showMessage('Please enter a player name!');
+                alert('Please enter a player name!');
                 return;
             }
 
             player.name = name;
-            player.position = position;
-            
-            // Adjust starting skills based on position
-            adjustSkillsForPosition(position);
-            
-            document.getElementById('startScreen').classList.add('hidden');
-            document.getElementById('gameScreen').classList.remove('hidden');
-            
+            player.position = document.getElementById('playerPosition').value;
+            player.nationality = document.getElementById('playerNationality').value;
+            player.foot = document.getElementById('playerFoot').value;
+
+            // Initialize stats based on position
+            initializeStats();
+
+            document.getElementById('startModal').classList.remove('active');
+            document.getElementById('gameInterface').style.display = 'block';
+
             updateUI();
-            showMessage(`Welcome ${name}! Your football career begins at ${player.club}. You play as a ${position}.`);
+            addNews('Career started! You joined ' + player.club + ' as a ' + getPositionName());
         }
 
-        function adjustSkillsForPosition(position) {
-            switch(position) {
-                case 'Forward':
-                    player.skills.shooting = 70;
-                    player.skills.pace = 65;
-                    player.skills.dribbling = 65;
+        function initializeStats() {
+            switch(player.position) {
+                case 'forward':
+                    player.stats.shooting = 60;
+                    player.stats.pace = 60;
+                    player.stats.dribbling = 55;
+                    player.stats.physical = 50;
+                    player.stats.passing = 45;
+                    player.stats.defense = 30;
                     break;
-                case 'Midfielder':
-                    player.skills.passing = 70;
-                    player.skills.dribbling = 65;
-                    player.skills.physical = 60;
+                case 'midfielder':
+                    player.stats.passing = 60;
+                    player.stats.dribbling = 55;
+                    player.stats.physical = 50;
+                    player.stats.shooting = 50;
+                    player.stats.pace = 50;
+                    player.stats.defense = 45;
                     break;
-                case 'Defender':
-                    player.skills.defense = 70;
-                    player.skills.physical = 65;
-                    player.skills.pace = 60;
+                case 'defender':
+                    player.stats.defense = 60;
+                    player.stats.physical = 60;
+                    player.stats.pace = 55;
+                    player.stats.passing = 45;
+                    player.stats.shooting = 35;
+                    player.stats.dribbling = 40;
                     break;
-                case 'Goalkeeper':
-                    player.skills.defense = 75;
-                    player.skills.physical = 65;
-                    player.skills.pace = 50;
+                case 'goalkeeper':
+                    player.stats.physical = 60;
+                    player.stats.defense = 55;
+                    player.stats.pace = 40;
+                    player.stats.passing = 45;
+                    player.stats.shooting = 30;
+                    player.stats.dribbling = 30;
                     break;
             }
             calculateOverall();
+        }
+
+        function getPositionName() {
+            const posArray = positions[player.position];
+            return posArray[Math.floor(Math.random() * posArray.length)];
         }
 
         function calculateOverall() {
-            const skills = player.skills;
-            player.overall = Math.round((
-                skills.shooting + 
-                skills.passing + 
-                skills.dribbling + 
-                skills.defense + 
-                skills.pace + 
-                skills.physical
-            ) / 6);
+            const stats = player.stats;
+            let overall;
+
+            switch(player.position) {
+                case 'forward':
+                    overall = Math.round((stats.shooting * 0.35 + stats.pace * 0.25 + stats.dribbling * 0.2 + stats.physical * 0.1 + stats.passing * 0.05 + stats.defense * 0.05));
+                    break;
+                case 'midfielder':
+                    overall = Math.round((stats.passing * 0.3 + stats.dribbling * 0.25 + stats.physical * 0.15 + stats.shooting * 0.15 + stats.pace * 0.1 + stats.defense * 0.05));
+                    break;
+                case 'defender':
+                    overall = Math.round((stats.defense * 0.35 + stats.physical * 0.25 + stats.pace * 0.2 + stats.passing * 0.1 + stats.shooting * 0.05 + stats.dribbling * 0.05));
+                    break;
+                case 'goalkeeper':
+                    overall = Math.round((stats.physical * 0.35 + stats.defense * 0.3 + stats.passing * 0.15 + stats.pace * 0.1 + stats.shooting * 0.05 + stats.dribbling * 0.05));
+                    break;
+                default:
+                    overall = Math.round((stats.shooting + stats.passing + stats.dribbling + stats.defense + stats.pace + stats.physical) / 6);
+            }
+
+            player.overall = overall;
+            
+            // Calculate market value based on overall, age, and club level
+            const ageFactor = player.age <= 23 ? 1.3 : player.age >= 30 ? 0.8 : 1.0;
+            const clubFactor = 1 + (player.clubLevel * 0.3);
+            player.marketValue = Math.round(overall * overall * 100 * ageFactor * clubFactor);
         }
 
         function updateUI() {
+            // Player Info
+            document.getElementById('playerNameDisplay').textContent = player.name;
+            document.getElementById('playerAge').textContent = player.age;
+            document.getElementById('playerPositionDisplay').textContent = getPositionName();
+            document.getElementById('playerClub').textContent = player.club;
             document.getElementById('overallRating').textContent = player.overall;
-            document.getElementById('energy').textContent = player.energy;
-            document.getElementById('age').textContent = player.age;
-            document.getElementById('club').textContent = player.club;
-            document.getElementById('goals').textContent = player.goals;
-            document.getElementById('matches').textContent = player.matches;
+            document.getElementById('marketValue').textContent = formatCurrency(player.marketValue);
+            document.getElementById('weeklySalary').textContent = formatCurrency(player.salary) + '/week';
+            document.getElementById('contractExpiry').textContent = (new Date().getFullYear() + player.contractYears);
+
+            // Energy
             document.getElementById('energyBar').style.width = player.energy + '%';
-            
-            // Update skill bars
-            const skillBarsHTML = Object.entries(player.skills).map(([skill, value]) => `
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>${skill.charAt(0).toUpperCase() + skill.slice(1)}</span>
-                        <span>${value}</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${value}%;"></div>
-                    </div>
-                </div>
-            `).join('');
-            
-            document.getElementById('skillBars').innerHTML = skillBarsHTML;
+            document.getElementById('energyText').textContent = player.energy + '%';
+
+            // Reputation
+            document.getElementById('reputationBar').style.width = player.reputation + '%';
+            document.getElementById('reputationText').textContent = player.reputation + '/100';
+
+            // Morale
+            updateMorale();
+
+            // Injury
+            if (player.injured) {
+                document.getElementById('injuryIndicator').classList.add('active');
+                document.getElementById('injuryDescription').textContent = `Out for ${player.injuryWeeks} more week(s)`;
+            } else {
+                document.getElementById('injuryIndicator').classList.remove('active');
+            }
+
+            // Stats
+            updateStat('shooting', player.stats.shooting);
+            updateStat('passing', player.stats.passing);
+            updateStat('dribbling', player.stats.dribbling);
+            updateStat('defense', player.stats.defense);
+            updateStat('pace', player.stats.pace);
+            updateStat('physical', player.stats.physical);
+
+            // Season Stats
+            document.getElementById('seasonGoals').textContent = player.seasonStats.goals;
+            document.getElementById('seasonAssists').textContent = player.seasonStats.assists;
+            document.getElementById('seasonMatches').textContent = player.seasonStats.matches;
+            const avgRating = player.seasonStats.matches > 0 
+                ? (player.seasonStats.totalRating / player.seasonStats.matches).toFixed(1)
+                : '0.0';
+            document.getElementById('seasonRating').textContent = avgRating;
+
+            // Achievements
+            updateAchievements();
+
+            // Button states
+            document.getElementById('trainBtn').disabled = player.energy < 15 || player.injured;
+            document.getElementById('matchBtn').disabled = player.energy < 25 || player.injured;
+            document.getElementById('restBtn').disabled = player.energy >= 100;
         }
 
-        function showMessage(text) {
-            document.getElementById('gameMessage').textContent = text;
+        function updateStat(name, value) {
+            document.getElementById(name + 'Stat').textContent = value;
+            document.getElementById(name + 'Bar').style.width = value + '%';
+        }
+
+        function updateMorale() {
+            const emoji = document.getElementById('moraleEmoji');
+            const text = document.getElementById('moraleText');
+            
+            if (player.morale >= 80) {
+                emoji.textContent = '🤩';
+                text.textContent = 'Excellent';
+            } else if (player.morale >= 60) {
+                emoji.textContent = '😊';
+                text.textContent = 'Good';
+            } else if (player.morale >= 40) {
+                emoji.textContent = '😐';
+                text.textContent = 'Okay';
+            } else if (player.morale >= 20) {
+                emoji.textContent = '😟';
+                text.textContent = 'Poor';
+            } else {
+                emoji.textContent = '😢';
+                text.textContent = 'Terrible';
+            }
         }
 
         function train() {
-            if (player.energy < 20) {
-                showMessage('Too tired to train! You need to rest first.');
-                return;
+            if (player.energy < 15 || player.injured) return;
+
+            player.energy -= 15;
+            gameDay++;
+
+            // Training effectiveness based on morale and random factor
+            const moraleBonus = player.morale / 200; // 0-0.5 bonus
+            const trainGain = Math.floor(Math.random() * 3) + 1 + (Math.random() < moraleBonus ? 1 : 0);
+
+            // Random stat improvement
+            const stats = Object.keys(player.stats);
+            const randomStat = stats[Math.floor(Math.random() * stats.length)];
+            player.stats[randomStat] = Math.min(99, player.stats[randomStat] + trainGain);
+
+            // Small chance of injury during training
+            if (Math.random() < 0.03) {
+                player.injured = true;
+                player.injuryWeeks = Math.floor(Math.random() * 2) + 1;
+                player.morale -= 10;
+                addNews(`⚠️ ${player.name} suffered an injury during training! Out for ${player.injuryWeeks} week(s).`);
+            } else {
+                addNews(`Training session completed! ${getPositionName()} improved ${randomStat} by +${trainGain}.`);
             }
 
-            player.energy -= 20;
-            
-            // Random skill improvement
-            const skills = Object.keys(player.skills);
-            const randomSkill = skills[Math.floor(Math.random() * skills.length)];
-            const improvement = Math.floor(Math.random() * 3) + 1;
-            
-            player.skills[randomSkill] = Math.min(99, player.skills[randomSkill] + improvement);
             calculateOverall();
-            
-            showMessage(`Training session complete! Your ${randomSkill} improved by ${improvement} points. Energy -20.`);
+            checkAgeProgression();
             updateUI();
         }
 
         function playMatch() {
-            if (player.energy < 30) {
-                showMessage('Too tired to play! You need at least 30 energy.');
-                return;
+            if (player.energy < 25 || player.injured) return;
+
+            player.energy -= 25;
+            gameDay++;
+
+            // Generate match result
+            const teamStrength = player.overall + (player.clubLevel * 5);
+            const opponentStrength = 50 + (player.clubLevel * 8) + Math.floor(Math.random() * 20);
+            
+            const homeAdvantage = Math.random() > 0.5 ? 5 : -5;
+            const performanceFactor = (player.morale - 50) / 10;
+            
+            let homeScore = Math.floor((teamStrength + homeAdvantage + performanceFactor) / 20) + Math.floor(Math.random() * 3);
+            let awayScore = Math.floor(opponentStrength / 20) + Math.floor(Math.random() * 3);
+
+            // Ensure reasonable scores
+            homeScore = Math.max(0, Math.min(8, homeScore));
+            awayScore = Math.max(0, Math.min(8, awayScore));
+
+            // Calculate player performance
+            const baseRating = 6.0 + (player.overall / 20);
+            const goalContribution = (homeScore - awayScore) * 0.3;
+            const randomPerformance = (Math.random() - 0.5) * 2;
+            
+            let matchRating = baseRating + goalContribution + randomPerformance;
+            matchRating = Math.max(4.0, Math.min(10.0, matchRating));
+
+            // Calculate goals and assists based on position and rating
+            let goals = 0;
+            let assists = 0;
+            
+            if (matchRating >= 7.5) {
+                if (player.position === 'forward' && Math.random() < 0.6) {
+                    goals = Math.floor(Math.random() * 3) + 1;
+                } else if (player.position === 'midfielder' && Math.random() < 0.4) {
+                    goals = Math.random() < 0.7 ? 1 : 0;
+                    assists = Math.floor(Math.random() * 2);
+                } else if (player.position === 'defender' && Math.random() < 0.2) {
+                    goals = Math.random() < 0.5 ? 1 : 0;
+                }
+                
+                if (Math.random() < 0.3 && goals === 0) {
+                    assists = Math.floor(Math.random() * 2) + 1;
+                }
             }
 
-            player.energy -= 30;
-            player.matches++;
-            
-            // Match performance based on overall rating and randomness
-            const performance = player.overall + Math.floor(Math.random() * 40) - 20;
-            
-            let goalsScored = 0;
-            let message = '';
-            
-            if (performance > 80) {
-                goalsScored = Math.floor(Math.random() * 3) + 1;
-                player.goals += goalsScored;
-                message = `Amazing performance! You scored ${goalsScored} goal(s)! The crowd loves you!`;
-                
-                // Chance for rating increase
-                if (Math.random() > 0.5) {
-                    const ratingIncrease = Math.floor(Math.random() * 2) + 1;
-                    player.overall = Math.min(99, player.overall + ratingIncrease);
-                    message += ` Your overall rating increased by ${ratingIncrease}!`;
+            // Hat-trick check
+            if (goals >= 3) {
+                player.careerStats.hatTricks++;
+                if (!player.achievements.includes('hatTrick')) {
+                    player.achievements.push('hatTrick');
+                    addNews(`🎯 HAT-TRICK! ${player.name} scored ${goals} goals in one match!`);
                 }
-            } else if (performance > 60) {
-                message = 'Good solid performance. You contributed well to the team.';
-                if (Math.random() > 0.7) {
-                    player.goals++;
-                    message += ' You even managed to score a goal!';
-                }
-            } else {
-                message = 'Tough match. You struggled to make an impact. Keep training!';
             }
-            
-            // Age up every 10 matches
-            if (player.matches % 10 === 0 && player.age < 35) {
-                player.age++;
-                message += ` Happy birthday! You're now ${player.age} years old.`;
+
+            // Update stats
+            player.seasonStats.goals += goals;
+            player.seasonStats.assists += assists;
+            player.seasonStats.matches++;
+            player.seasonStats.totalRating += matchRating;
+            player.careerStats.goals += goals;
+            player.careerStats.assists += assists;
+            player.careerStats.matches++;
+
+            // First goal achievement
+            if (goals > 0 && !player.achievements.includes('firstGoal')) {
+                player.achievements.push('firstGoal');
+                addNews(`⚽ GOAL! ${player.name} scored their first career goal!`);
             }
+
+            // Reputation changes
+            if (matchRating >= 8.0) {
+                player.reputation = Math.min(100, player.reputation + 5);
+                player.morale = Math.min(100, player.morale + 5);
+            } else if (matchRating <= 5.0) {
+                player.reputation = Math.max(0, player.reputation - 3);
+                player.morale = Math.max(0, player.morale - 5);
+            }
+
+            // Small injury chance during match
+            if (Math.random() < 0.05) {
+                player.injured = true;
+                player.injuryWeeks = Math.floor(Math.random() * 3) + 1;
+                player.morale -= 15;
+                addNews(`⚠️ ${player.name} got injured during the match! Out for ${player.injuryWeeks} week(s).`);
+            }
+
+            // Display match result
+            const isHome = Math.random() > 0.5;
+            document.getElementById('homeTeam').textContent = isHome ? player.club : 'Opponent FC';
+            document.getElementById('awayTeam').textContent = isHome ? 'Opponent FC' : player.club;
+            document.getElementById('homeScore').textContent = isHome ? homeScore : awayScore;
+            document.getElementById('awayScore').textContent = isHome ? awayScore : homeScore;
+            document.getElementById('matchRating').textContent = matchRating.toFixed(1);
+            document.getElementById('matchGoals').textContent = `Goals: ${goals} | Assists: ${assists}`;
+            document.getElementById('matchPossession').textContent = (45 + Math.floor(Math.random() * 20)) + '%';
+            document.getElementById('matchShots').textContent = (3 + Math.floor(Math.random() * 8));
+            document.getElementById('matchPassAccuracy').textContent = (70 + Math.floor(Math.random() * 25)) + '%';
             
-            showMessage(message);
+            document.getElementById('matchResult').classList.add('active');
+
+            addNews(`Match played: ${player.club} ${isHome ? homeScore : awayScore}-${isHome ? awayScore : homeScore} Opponent. Your rating: ${matchRating.toFixed(1)}`);
+            
+            if (goals > 0) {
+                addNews(`⚽ ${player.name} scored ${goals} goal(s) and provided ${assists} assist(s)!`);
+            }
+
+            calculateOverall();
+            checkAgeProgression();
             updateUI();
         }
 
         function rest() {
-            player.energy = Math.min(100, player.energy + 40);
-            showMessage('You took a good rest. Energy restored!');
-            updateUI();
-        }
+            if (player.energy >= 100) return;
 
-        function checkTransfers() {
-            const currentClubIndex = clubs.findIndex(c => c.name === player.club);
-            const nextClub = clubs[currentClubIndex + 1];
-            
-            if (!nextClub) {
-                showMessage('You\'re already at the top club! No higher transfers available.');
-                return;
-            }
-            
-            if (player.overall >= nextClub.minRating) {
-                player.club = nextClub.name;
-                showMessage(`🎉 TRANSFER SUCCESS! You've been transferred to ${nextClub.name}! Congratulations on this career move!`);
+            player.energy = Math.min(100, player.energy + 30);
+            player.morale = Math.min(100, player.morale + 5);
+            gameDay++;
+
+            // Recovery from injury
+            if (player.injured) {
+                player.injuryWeeks--;
+                if (player.injuryWeeks <= 0) {
+                    player.injured = false;
+                    addNews(`✅ ${player.name} has recovered from injury!`);
+                }
             } else {
-                showMessage(`Transfer interest from ${nextClub.name}, but they require ${nextClub.minRating} overall. You currently have ${player.overall}. Keep improving!`);
+                addNews(`${player.name} took a rest day. Energy restored.`);
             }
+
+            checkAgeProgression();
             updateUI();
         }
 
-        // Initialize
+        function checkAgeProgression() {
+            // Age increases every 52 game days (approximately 1 year)
+            if (gameDay % 52 === 0) {
+                player.age++;
+                currentSeason++;
+                
+                // Skill decay for older players
+                if (player.age >= 30) {
+                    const decay = Math.floor(Math.random() * 2) + 1;
+                    const stats = Object.keys(player.stats);
+                    const randomStat = stats[Math.floor(Math.random() * stats.length)];
+                    player.stats[randomStat] = Math.max(1, player.stats[randomStat] - decay);
+                    addNews(`⚠️ Age effect: ${player.name}'s ${randomStat} decreased by ${decay} due to aging.`);
+                }
+
+                // Reset season stats
+                player.seasonStats = {
+                    goals: 0,
+                    assists: 0,
+                    matches: 0,
+                    totalRating: 0,
+                    yellowCards: 0,
+                    redCards: 0
+                };
+
+                addNews(`🎂 Happy Birthday! ${player.name} is now ${player.age} years old. Season ${currentSeason} begins!`);
+                
+                // Contract expiry check
+                player.contractYears--;
+                if (player.contractYears <= 1) {
+                    addNews(`⚠️ Contract warning: Only ${player.contractYears} year(s) left on your contract!`);
+                }
+
+                calculateOverall();
+            }
+        }
+
+        function showTransfers() {
+            document.getElementById('transferPanel').classList.add('active');
+            
+            const clubList = document.getElementById('clubList');
+            clubList.innerHTML = '';
+
+            clubs.forEach(club => {
+                const isCurrent = club.name === player.club;
+                const isInterested = player.overall >= club.requiredOverall && !isCurrent;
+                const canJoin = isInterested && player.overall >= club.requiredOverall;
+
+                const clubDiv = document.createElement('div');
+                clubDiv.className = 'club-item' + (isCurrent ? ' current' : '') + (isInterested ? ' interested' : '');
+                
+                clubDiv.innerHTML = `
+                    <div class="club-info">
+                        <h4>${club.name} ${isCurrent ? '(Current Club)' : ''}</h4>
+                        <div class="club-details">
+                            <span>📊 ${club.division}</span>
+                            <span>💰 ${formatCurrency(club.salary)}/week</span>
+                            <span>⭐ Required: ${club.requiredOverall}</span>
+                        </div>
+                    </div>
+                    <button class="transfer-btn" 
+                        ${canJoin && !isCurrent ? '' : 'disabled'}
+                        onclick="requestTransfer('${club.name}', ${club.level}, ${club.salary})">
+                        ${isCurrent ? '✓' : canJoin ? 'Request Transfer' : 'Locked'}
+                    </button>
+                `;
+                
+                clubList.appendChild(clubDiv);
+            });
+        }
+
+        function hideTransfers() {
+            document.getElementById('transferPanel').classList.remove('active');
+        }
+
+        function requestTransfer(clubName, clubLevel, salary) {
+            const club = clubs.find(c => c.name === clubName);
+            
+            // Transfer success chance based on overall vs required
+            const successChance = Math.min(0.9, 0.5 + ((player.overall - club.requiredOverall) / 100));
+            
+            if (Math.random() < successChance) {
+                player.club = clubName;
+                player.clubLevel = clubLevel;
+                player.salary = salary;
+                player.contractYears = 4;
+                player.reputation = Math.min(100, player.reputation + 10);
+                player.morale = Math.min(100, player.morale + 15);
+                
+                if (!player.achievements.includes('transfer')) {
+                    player.achievements.push('transfer');
+                }
+
+                addNews(`💼 TRANSFER COMPLETE! ${player.name} joins ${clubName}!`);
+                addNews(`New contract: ${formatCurrency(salary)}/week for 4 years.`);
+                
+                calculateOverall();
+                updateUI();
+                hideTransfers();
+            } else {
+                addNews(`❌ Transfer rejected by ${clubName}. Keep improving your overall rating!`);
+                player.morale = Math.max(0, player.morale - 5);
+                updateUI();
+            }
+        }
+
+        function updateAchievements() {
+            const achievementMap = {
+                'firstGoal': 'achFirstGoal',
+                'hatTrick': 'achHatTrick',
+                'transfer': 'achTransfer'
+            };
+
+            // Check for captain achievement (high reputation + high overall)
+            if (player.reputation >= 70 && player.overall >= 80 && !player.achievements.includes('captain')) {
+                player.achievements.push('captain');
+                addNews(`👑 ${player.name} has been named team captain!`);
+            }
+
+            // Legend achievement (overall 90+)
+            if (player.overall >= 90 && !player.achievements.includes('legend')) {
+                player.achievements.push('legend');
+                addNews(`🌟 LEGENDARY STATUS! ${player.name} is now considered a football legend!`);
+            }
+
+            // Champion achievement (win 50 matches)
+            if (player.careerStats.matches >= 50 && !player.achievements.includes('champion')) {
+                player.achievements.push('champion');
+                addNews(`🏆 CHAMPION! ${player.name} has played 50+ career matches!`);
+            }
+
+            // Update UI
+            player.achievements.forEach(ach => {
+                const elementId = achievementMap[ach] || 'ach' + ach.charAt(0).toUpperCase() + ach.slice(1);
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.classList.add('unlocked');
+                }
+            });
+        }
+
+        function addNews(message) {
+            const newsFeed = document.getElementById('newsFeed');
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+            newsItem.innerHTML = `
+                <div class="news-date">Day ${gameDay}</div>
+                <div>${message}</div>
+            `;
+            newsFeed.insertBefore(newsItem, newsFeed.firstChild);
+
+            // Limit news items
+            while (newsFeed.children.length > 20) {
+                newsFeed.removeChild(newsFeed.lastChild);
+            }
+        }
+
+        function formatCurrency(amount) {
+            if (amount >= 1000000) {
+                return '€' + (amount / 1000000).toFixed(2) + 'M';
+            } else if (amount >= 1000) {
+                return '€' + (amount / 1000).toFixed(1) + 'K';
+            } else {
+                return '€' + amount;
+            }
+        }
+
+        // Initialize game
         updateUI();
     </script>
 </body>
